@@ -48,12 +48,14 @@
 
             if (empty($this->username)){
                 array_push($errors, "Invalid username");
-            } else if (empty($this->password)){
+            } else if (strlen($this->username) < 3 || strlen($this->username) > 50) {
+                array_push($errors, "Username moet tussen 3 en 50 tekens zijn");
+            }
+
+            if (empty($this->password)){
                 array_push($errors, "Invalid password");
             }
 
-            // Test username > 3 tekens
-            
             return $errors;
         }
 
